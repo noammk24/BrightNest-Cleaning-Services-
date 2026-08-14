@@ -2,11 +2,11 @@
 
 ## Student Information
 
-**Student Name:** [MULENGA NOAM KABEKE]  
-**Student Number:** [ST10517736]  
+**Student Name:** MULENGA NOAM KABEKE
+**Student Number:** ST10517736
 **Module:** WEDE5020
-**Programme:** [HMAW0501]  
-**Institution:** [ROSEBANK INTERNATIONAL COLLEGE]
+**Programme:** HMAW0501 
+**Institution:** ROSEBANK INTERNATIONAL COLLEGE
 **Year:** 2026
 
 ---
