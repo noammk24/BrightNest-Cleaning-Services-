@@ -3,10 +3,15 @@
 ## Student Information
 
 **Student Name:** MULENGA NOAM KABEKE
+
 **Student Number:** ST10517736
+
 **Module:** WEDE5020
-**Programme:** HMAW0501 
+
+**Programme:** HMAW0501
+
 **Institution:** ROSEBANK INTERNATIONAL COLLEGE
+
 **Year:** 2026
 
 ---
@@ -15,7 +20,7 @@
 
 BrightNest Cleaning Services is a proposed cleaning services website developed as part of the WEDE web development project.
 
-The website is designed for a fictional cleaning organisation based in Rosebank, Johannesburg. The purpose of the website is to provide customers with clear information about the organisation, its cleaning services, proposed pricing and contact options.
+The website is designed for a fictional cleaning organisation based in Cape Town. The purpose of the website is to provide customers with clear information about the organisation, its cleaning services, proposed pricing and contact options.
 
 The website is aimed at residential customers, professionals, students and small businesses that may require professional cleaning services.
 
@@ -116,6 +121,53 @@ Each service will provide a description, benefits, estimated duration and propos
 
 ---
 
+## Design and User Experience
+
+The BrightNest website will use a simple and clear design to make it easy for customers to find information about cleaning services.
+
+The website will have consistent navigation across all five pages. The content will be organised into clear sections with headings and readable text.
+
+The design will focus on usability, accessibility and a simple user experience. The website will also use appropriate images to support the content and help users understand the services offered.
+
+The website will be designed with different users in mind, including residential customers, professionals, students and small businesses.
+
+---
+
+## Wireframes
+
+Basic wireframes were created during the planning stage to show the proposed structure and layout of the website pages.
+
+The wireframes show the main areas of each page, including:
+
+- Header and navigation
+- Main content
+- Service information
+- Forms and call-to-action buttons
+- Contact information
+- Footer
+
+The wireframes were used as a guide when developing the HTML structure of the website.
+
+---
+
+## Technical Requirements
+
+The following technologies and tools are used for the project:
+
+- HTML5 for the website structure
+- Visual Studio Code for writing and editing code
+- Git for version control
+- GitHub for repository management
+- Web browser for testing the website
+- Image assets from Pexels
+- CSS 
+
+The website is currently being developed using standard HTML. CSS will be added during the later styling stage to improve the visual appearance and responsive design of the website.
+
+Additional functionality may also be added during later stages of the project.
+
+---
+
 ## Timeline and Milestones
 
 | Phase | Activity | Status |
@@ -163,35 +215,35 @@ Part 2 and Part 3 will be added to this repository as the project progresses.
 
 ---
 
-## Sitemap
+## Folder Structure
 
-The website contains five main pages:
+The project is organised into separate folders to make the website files easier to manage.
 
 ```text
-BrightNest Cleaning Services
+BrightNest-Cleaning-Services/
 │
-├── Home
-│   └── index.html
+├── index.html
 │
-├── About Us
-│   └── about.html
+├── pages/
+│   ├── about.html
+│   ├── services.html
+│   ├── quote.html
+│   └── contact.html
 │
-├── Services
-│   └── services.html
+├── images/
+│   ├── gallery-1.jpg
+│   ├── gallery-2.jpg
+│   └── services/
+│       ├── Residential Cleaning.jpg
+│       ├── Commercial Cleaning.jpg
+│       ├── Move In and Move Out Cleaning.jpg
+│       ├── Deep Cleaning.jpg
+│       ├── Carpet Cleaning.jpg
+│       ├── Window Cleaning.jpg
+│       └── Upholstery Cleaning.png
 │
-├── Pricing & Quote
-│   └── quote.html
-│
-└── Contact
-    └── contact.html
-    ---
+└── README.md
 
-    ## REFERENCES 
 
-    Google Search Central (2025) Creating helpful, reliable, people-first content. Available at: https://developers.google.com/search/docs/fundamentals/creating-helpful-content (Accessed: 14 August 2026).
 
-International Organization for Standardization (2019) ISO 9241-210:2019 Ergonomics of human-system interaction – Part 210: Human-centred design for interactive systems. Available at: https://www.iso.org/standard/77520.html (Accessed: 14 August 2026).
 
-Pexels (n.d.) Pexels licence. Available at: https://www.pexels.com/legal-pages/license/ (Accessed: 14 August 2026).
-
-World Wide Web Consortium (2024) Web Content Accessibility Guidelines (WCAG) 2.2. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 14 August 2026).
