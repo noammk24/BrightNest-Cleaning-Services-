@@ -140,18 +140,31 @@ main ul {
 main ul li {
     margin-bottom: 10px;
 }
-
-
 /* Testimonials */
 article {
     background-color: #f6f7f5;
     border-left: 3px solid #d98e3b;
-    padding: 15px 20px;
-    margin-bottom: 15px;
+    padding: 0.9375rem 1.25rem;
+    margin-bottom: 0.9375rem;
     border-radius: 6px;
+ 
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-
-
+ 
+.testimonial-avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #d98e3b;
+}
+ 
+.testimonial-text {
+    flex: 1;
+}
 /* Gallery */
 main img {
     border-radius: 8px;
