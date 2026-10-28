@@ -7,6 +7,7 @@
     <title>BrightNest Cleaning Services</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -113,13 +114,27 @@
 
             <p>Take a look at some of our completed cleaning projects.</p>
 
-            <img src="images/services/home 2.png"
-                 alt="home 2"
-                 width="300">
+            <div class="gallery-grid" role="group" aria-label="Cleaning project gallery">
+                <button class="gallery-item" type="button"
+                        data-full="images/services/home 2.png"
+                        data-alt="Freshly cleaned BrightNest home interior"
+                        aria-label="View freshly cleaned BrightNest home interior">
+                    <img src="images/services/home 2.png"
+                         alt="Freshly cleaned BrightNest home interior"
+                         width="300">
+                    <span>View image</span>
+                </button>
 
-            <img src="images/services/gallery-2.png"
-                 alt="BrightNest cleaning project"
-                 width="300">
+                <button class="gallery-item" type="button"
+                        data-full="images/services/gallery-2.png"
+                        data-alt="A completed BrightNest cleaning project"
+                        aria-label="View a completed BrightNest cleaning project">
+                    <img src="images/services/gallery-2.png"
+                         alt="A completed BrightNest cleaning project"
+                         width="300">
+                    <span>View image</span>
+                </button>
+            </div>
         </section>
 
         <section>

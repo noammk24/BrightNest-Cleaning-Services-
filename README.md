@@ -26,7 +26,7 @@ The website is aimed at residential customers, professionals, students and small
 
 The website will use a simple and clear structure to help users find information about available services and request a quotation.
 
-Part 1 of the project focused on developing the basic HTML structure of the website. Part 2 has now added CSS styling and responsive design. Additional functionality will be developed during later stages of the project.
+The website includes responsive styling and interactive features such as an FAQ accordion, a project gallery lightbox, scroll-reveal effects and an OpenStreetMap-powered Cape Town service-area map.
 
 ---
 
@@ -116,8 +116,7 @@ Each service will provide a description, benefits, estimated duration and propos
 - WhatsApp contact option
 - Contact form
 - Business operating hours
-- Business location
-- Google Maps location
+- Cape Town service-area map with an OpenStreetMap link
 
 ---
 
@@ -166,7 +165,7 @@ The following technologies and tools are used for the project:
 - Google Fonts for typography
 - Random User Generator for placeholder testimonial avatars
 
-The website uses standard HTML5 and CSS3 with no external frameworks. Additional functionality (such as form handling) may be added during later stages of the project.
+The website uses HTML5, CSS3 and vanilla JavaScript. Leaflet and OpenStreetMap provide the interactive map; the rest of the interactions do not require a framework. The map pin marks central Cape Town as a general service-area reference because the fictional business has no public street address.
 
 ---
 

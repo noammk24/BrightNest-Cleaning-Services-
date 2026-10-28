@@ -8,6 +8,11 @@
 
     <!-- Link to the main CSS stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="../js/script.js" defer></script>
 </head>
 
 <body>
@@ -45,6 +50,21 @@
 
                 <p>Business Hours: Monday - Saturday, 08:00 - 16:00</p>
 
+            </section>
+
+            <section class="location-section">
+                <h3>Find Us in Cape Town</h3>
+                <p>
+                    The map pin marks central Cape Town as a general service-area reference.
+                    BrightNest does not list a public street address.
+                </p>
+                <div id="business-map" class="business-map"
+                     role="region" aria-label="Map showing the BrightNest Cape Town service area"></div>
+                <p id="map-status" class="map-status" role="status" aria-live="polite">
+                    Map of central Cape Town service area.
+                </p>
+                <a class="map-link" href="https://www.openstreetmap.org/?mlat=-33.9249&amp;mlon=18.4241#map=13/-33.9249/18.4241"
+                   target="_blank" rel="noopener noreferrer">Open Cape Town map in OpenStreetMap</a>
             </section>
 
             <!-- Contact form -->

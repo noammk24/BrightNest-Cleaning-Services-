@@ -8,6 +8,7 @@
 
     <!-- Link to the main CSS stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
 </head>
 
 <body>
@@ -107,48 +108,59 @@
 
             <h2>Frequently Asked Questions</h2>
 
-            <section>
+            <div class="faq-list">
+                <section class="faq-item">
+                    <h3>
+                        <button class="faq-question" id="faq-question-areas" type="button" aria-expanded="false"
+                                aria-controls="faq-areas">
+                            Which areas do you service?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq-answer" id="faq-areas" role="region" aria-labelledby="faq-question-areas">
+                        <p>We service selected residential and commercial areas.</p>
+                    </div>
+                </section>
 
-                <h3>Which areas do you service?</h3>
+                <section class="faq-item">
+                    <h3>
+                        <button class="faq-question" id="faq-question-equipment" type="button" aria-expanded="false"
+                                aria-controls="faq-equipment">
+                            Do I need to provide cleaning equipment?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq-answer" id="faq-equipment" role="region" aria-labelledby="faq-question-equipment">
+                        <p>BrightNest Cleaning Services can provide the necessary cleaning equipment and products.</p>
+                    </div>
+                </section>
 
-                <p>
-                    We service selected residential and commercial areas.
-                </p>
+                <section class="faq-item">
+                    <h3>
+                        <button class="faq-question" id="faq-question-payment" type="button" aria-expanded="false"
+                                aria-controls="faq-payment">
+                            How can I make payment?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq-answer" id="faq-payment" role="region" aria-labelledby="faq-question-payment">
+                        <p>Payment options will be discussed when your booking is confirmed.</p>
+                    </div>
+                </section>
 
-            </section>
-
-            <section>
-
-                <h3>Do I need to provide cleaning equipment?</h3>
-
-                <p>
-                    BrightNest Cleaning Services can provide the necessary cleaning equipment
-                    and products.
-                </p>
-
-            </section>
-
-            <section>
-
-                <h3>How can I make payment?</h3>
-
-                <p>
-                    Payment options will be discussed when your booking
-                    is confirmed.
-                </p>
-
-            </section>
-
-            <section>
-
-                <h3>Can I cancel my booking?</h3>
-
-                <p>
-                    Customers can contact BrightNest Cleaning Services to discuss cancellation
-                    arrangements.
-                </p>
-
-            </section>
+                <section class="faq-item">
+                    <h3>
+                        <button class="faq-question" id="faq-question-cancel" type="button" aria-expanded="false"
+                                aria-controls="faq-cancel">
+                            Can I cancel my booking?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq-answer" id="faq-cancel" role="region" aria-labelledby="faq-question-cancel">
+                        <p>Customers can contact BrightNest Cleaning Services to discuss cancellation arrangements.</p>
+                    </div>
+                </section>
+            </div>
 
         </section>
 
