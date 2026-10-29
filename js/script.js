@@ -1,4 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const serviceList = document.getElementById("service-list");
+    const serviceSearch = document.getElementById("service-search");
+    const serviceSort = document.getElementById("service-sort");
+    const serviceResults = document.getElementById("service-results");
+
+    if (serviceList && serviceSearch && serviceSort && serviceResults) {
+        const services = Array.from(serviceList.querySelectorAll(".service-card")).map((card, index) => {
+            const priceLine = Array.from(card.querySelectorAll("p"))
+                .find((paragraph) => paragraph.textContent.includes("Starting Price:"));
+            const priceText = priceLine?.textContent.match(/R\s?([\d,]+)/i)?.[1];
+            const price = priceText ? Number(priceText.replace(/,/g, "")) : 0;
+
+            return {
+                card,
+                index,
+                name: card.querySelector("h2")?.textContent.trim() || "",
+                searchText: card.textContent.toLocaleLowerCase(),
+                price
+            };
+        });
+
+        const updateServices = () => {
+            const searchTerm = serviceSearch.value.trim().toLocaleLowerCase();
+            const sortOrder = serviceSort.value;
+            const matchingServices = services
+                .filter((service) => service.searchText.includes(searchTerm))
+                .sort((first, second) => {
+                    if (sortOrder === "name") {
+                        return first.name.localeCompare(second.name);
+                    }
+                    if (sortOrder === "price-low") {
+                        return first.price - second.price || first.index - second.index;
+                    }
+                    if (sortOrder === "price-high") {
+                        return second.price - first.price || first.index - second.index;
+                    }
+                    return first.index - second.index;
+                });
+
+            services.forEach((service) => service.card.remove());
+            matchingServices.forEach((service) => serviceList.append(service.card));
+
+            if (matchingServices.length === 0) {
+                serviceResults.textContent = "No cleaning services match your search. Try another term.";
+            } else if (searchTerm) {
+                serviceResults.textContent = `Showing ${matchingServices.length} of ${services.length} cleaning services.`;
+            } else {
+                serviceResults.textContent = `Showing all ${services.length} cleaning services.`;
+            }
+        };
+
+        serviceSearch.addEventListener("input", updateServices);
+        serviceSort.addEventListener("change", updateServices);
+        updateServices();
+    }
+
     const faqList = document.querySelector(".faq-list");
 
     if (faqList) {
@@ -128,9 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if ("IntersectionObserver" in window
+    const revealTargets = Array.from(document.querySelectorAll("main > section"))
+        .filter((section) => !section.querySelector(".service-card"));
+
+    if (revealTargets.length > 0
+        && "IntersectionObserver" in window
         && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        const revealTargets = document.querySelectorAll("main > section, .service-card");
         revealTargets.forEach((target) => target.classList.add("reveal"));
         let observer = null;
 

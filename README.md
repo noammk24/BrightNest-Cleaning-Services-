@@ -99,6 +99,19 @@ The Services page will provide information about:
 
 Each service will provide a description, benefits, estimated duration and proposed starting price.
 
+The service cards can be searched and sorted by name or starting price. The service list remains available when JavaScript is disabled.
+
+### Search and On-Page SEO
+
+- Each page has a distinct title and meta description.
+- Main page headings use a clear heading hierarchy, with descriptive image alt text and filenames.
+- Existing navigation and service-to-quote links connect related pages.
+- Descriptive `.html` page paths are retained for simple static hosting; the referenced image filenames use lowercase, hyphenated names.
+- Service listings can be filtered by search text and sorted by name or price.
+- Mobile layouts retain the site navigation and adapt the service controls to narrow screens.
+
+Keyword phrases were selected from Google autocomplete suggestions for Cape Town cleaning searches and aligned with the services offered. Suggestions included “cleaning services Cape Town,” “cleaning services Cape Town prices,” “house cleaning Cape Town” and “deep cleaning services Cape Town.” These are directional query suggestions, not search-volume estimates.
+
 ### Pricing and Quote Page
 
 - Proposed service prices
@@ -167,6 +180,8 @@ The following technologies and tools are used for the project:
 
 The website uses HTML5, CSS3 and vanilla JavaScript. Leaflet and OpenStreetMap provide the interactive map; the rest of the interactions do not require a framework. The map pin marks central Cape Town as a general service-area reference because the fictional business has no public street address.
 
+The Our Work gallery includes locally stored photographs from Unsplash, used under the [Unsplash License](https://unsplash.com/license). Photo credits: [Vitaly Gariev](https://unsplash.com/@silverkblack), [Giorgio Trovato](https://unsplash.com/@giorgiotrovato) and [Towfiqu barbhuiya](https://unsplash.com/@towfiqu999999).
+
 ---
 
 ## Budget
@@ -198,7 +213,8 @@ The table below outlines the proposed budget for developing and maintaining the 
 | Part 1 | Website images | Completed |
 | Part 2 | Website styling and visual design | Completed |
 | Part 2 | Responsive website development | Completed |
-| Part 3 | Additional website functionality | Planned |
+| Part 3 | Dynamic service search and sorting | Completed |
+| Part 3 | On-page SEO and descriptive image assets | Completed |
 | Final | Testing and documentation | Planned |
 
 ---
@@ -258,7 +274,7 @@ The work completed during this stage includes:
 - Added customer avatar images to the homepage testimonials with circular styling.
 - Tested the website across different screen sizes using browser developer tools.
 
-Part 3 will be added to this repository as the project progresses.
+Part 3 adds the FAQ accordion, Leaflet service-area map, gallery lightbox, scroll effects, searchable and sortable service listings, and on-page SEO improvements.
 
 ---
 
@@ -273,6 +289,7 @@ BrightNest-Cleaning-Services/
 │   └── style.css
 │
 ├── js/
+│   └── script.js
 │
 ├── pages/
 │   ├── about.html
@@ -281,19 +298,18 @@ BrightNest-Cleaning-Services/
 │   └── contact.html
 │
 ├── images/
-│   ├── gallery-1.jpg
-│   ├── gallery-2.jpg
 │   └── services/
-│       ├── Residential Cleaning.jpg
+│       ├── brightnest-cleaning-supplies.png
+│       ├── cape-town-cleaning-professional.png
+│       ├── carpet-cleaning-cape-town.jpg
 │       ├── Commercial Cleaning.jpg
-│       ├── Move In and Move Out Cleaning.jpg
-│       ├── Deep Cleaning.jpg
-│       ├── Carpet Cleaning.jpg
-│       ├── Window Cleaning.jpg
-│       ├── Upholstery Cleaning.png
-│       ├── home 2.png
-│       ├── residential cleaning2.png
-│       └── gallery-2.png
+│       ├── deep-cleaning-cape-town.jpg
+│       ├── move-in-move-out-cleaning-cape-town.jpg
+│       ├── office-cleaning-cape-town.png
+│       ├── Residential Cleaning.jpg
+│       ├── residential-cleaning-cape-town.png
+│       ├── upholstery-cleaning-cape-town.png
+│       └── window-cleaning-cape-town.jpg
 │
 ├── index.html
 │

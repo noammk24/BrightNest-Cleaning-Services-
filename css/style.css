@@ -31,7 +31,7 @@ h3 {
 }
 
 h1 {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
 }
 
 h2 {
@@ -60,7 +60,11 @@ header {
     flex-wrap: wrap;
 }
 
-header h1 {
+.site-name {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.6;
     margin: 0;
     color: #163f3a;
 }
@@ -107,7 +111,7 @@ main > section {
     padding: 70px 30px;
 }
 
-.hero h2 {
+.hero h1 {
     font-size: 2.5rem;
     color: #163f3a;
 }
@@ -266,11 +270,15 @@ footer a:hover {
         padding: 15px;
     }
 
+    h1 {
+        font-size: 2rem;
+    }
+
     main {
         padding: 30px 15px;
     }
 
-    .hero h2 {
+    .hero h1 {
         font-size: 2rem;
     }
 }
@@ -302,7 +310,11 @@ footer a:hover {
         padding: 2.5rem 1.25rem;
     }
  
-    .hero h2 {
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    h1 {
         font-size: 1.7rem;
     }
  
@@ -314,7 +326,7 @@ footer a:hover {
 /* Small mobile screens */
 @media (max-width: 480px) {
 
-    header h1 {
+    .site-name {
         font-size: 1.5rem;
     }
 
@@ -338,7 +350,7 @@ footer a:hover {
         padding: 30px 15px;
     }
 
-    .hero h2 {
+    .hero h1 {
         font-size: 1.5rem;
     }
 
@@ -441,6 +453,51 @@ button:focus-visible {
 
 .faq-answer p {
     margin: 0;
+}
+
+main section section > h2,
+.service-card > h2 {
+    font-size: 1.25rem;
+}
+
+main > h1 ~ section > h2 {
+    font-size: 1.25rem;
+}
+
+.service-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 16px;
+    margin: 24px 0 8px;
+}
+
+.service-controls label {
+    display: block;
+    margin-bottom: 6px;
+    color: #163f3a;
+    font-weight: bold;
+}
+
+.service-controls input,
+.service-controls select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    border: 1px solid #dce3df;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1c2622;
+    font: inherit;
+}
+
+.service-controls input:focus-visible,
+.service-controls select:focus-visible {
+    outline: 2px solid #1f5c54;
+    outline-offset: 2px;
+}
+
+.service-results {
+    min-height: 1.6em;
 }
 
 .gallery-grid {
