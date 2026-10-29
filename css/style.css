@@ -135,6 +135,16 @@ main > section {
     background-color: #b8722a;
 }
 
+.share-button {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.share-status {
+    min-height: 1.6em;
+}
+
 
 /* Lists */
 main ul {
@@ -214,9 +224,12 @@ main img {
 
 .site-form label {
     display: block;
-    margin-top: 15px;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+.site-form .form-field + .form-field {
+    margin-top: 14px;
 }
 
 .site-form input,
@@ -228,6 +241,33 @@ main img {
     font-size: 1rem;
     border: 1px solid #dce3df;
     border-radius: 6px;
+}
+
+.site-form input,
+.site-form select {
+    min-height: 44px;
+}
+
+.site-form textarea {
+    resize: vertical;
+}
+
+.site-form .field-error {
+    display: block;
+    color: #a4262c;
+}
+
+.site-form [aria-invalid="true"] {
+    border-color: #a4262c;
+}
+
+.form-status {
+    margin-bottom: 0;
+}
+
+.form-status a {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .site-form input:focus,

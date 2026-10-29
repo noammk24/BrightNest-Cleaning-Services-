@@ -1,4 +1,244 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const emailRecipient = "info@brightnest.co.za";
+    const today = new Date();
+    const localDate = [
+        today.getFullYear(),
+        String(today.getMonth() + 1).padStart(2, "0"),
+        String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
+    const setFieldError = (field, message) => {
+        const error = document.getElementById(`${field.id}-error`);
+        field.setAttribute("aria-invalid", message ? "true" : "false");
+        if (error) {
+            error.textContent = message;
+        }
+    };
+
+    const setFormFeedback = (form) => {
+        const status = form.querySelector(".form-status");
+
+        form.addEventListener("invalid", (event) => {
+            const field = event.target;
+            setFieldError(field, field.validationMessage);
+            status.textContent = `Please correct the highlighted field: ${field.validationMessage}`;
+        }, true);
+
+        form.querySelectorAll("input, select, textarea").forEach((field) => {
+            field.addEventListener("input", () => {
+                field.setCustomValidity("");
+                if (field.validity.valid) {
+                    setFieldError(field, "");
+                }
+                if (!form.querySelector(".field-error:not(:empty)")) {
+                    status.textContent = "";
+                }
+            });
+            field.addEventListener("change", () => {
+                if (field.validity.valid) {
+                    setFieldError(field, "");
+                }
+            });
+        });
+
+        return status;
+    };
+
+    const isValidPhone = (value) => {
+        const normalized = value.trim().replace(/[\s().-]/g, "");
+        return /^\+?\d{7,15}$/.test(normalized);
+    };
+
+    const validateText = (field, minimumLength, message) => {
+        if (field.value.trim().length < minimumLength) {
+            field.setCustomValidity(message);
+            field.reportValidity();
+            return false;
+        }
+        field.setCustomValidity("");
+        return true;
+    };
+
+    const addEmailDraftLink = (status, subject, body, message) => {
+        status.textContent = `${message} `;
+        const link = document.createElement("a");
+        link.href = `mailto:${emailRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        link.textContent = "Open prefilled email draft";
+        status.append(link);
+        const note = document.createElement("span");
+        note.textContent = " Review it and press Send in your email app; it has not been sent.";
+        status.append(note);
+    };
+
+    const quoteForm = document.getElementById("quote-form");
+    if (quoteForm) {
+        const quoteStatus = setFormFeedback(quoteForm);
+        const dateField = quoteForm.elements.namedItem("date");
+        dateField.min = localDate;
+
+        const startingPrices = {
+            residential: 350,
+            office: 700,
+            deep: 800,
+            move: 750,
+            carpet: 400,
+            upholstery: 350,
+            window: 300
+        };
+
+        quoteForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            quoteStatus.textContent = "";
+
+            const formData = new FormData(quoteForm);
+            const nameField = quoteForm.elements.namedItem("name");
+            if (!validateText(nameField, 2, "Enter your name using at least 2 non-space characters.")) {
+                return;
+            }
+
+            const phone = formData.get("phone").toString();
+            if (!isValidPhone(phone)) {
+                const phoneField = quoteForm.elements.namedItem("phone");
+                phoneField.setCustomValidity("Enter a phone number with 7 to 15 digits.");
+                phoneField.reportValidity();
+                return;
+            }
+
+            const areaField = quoteForm.elements.namedItem("propertyArea");
+            if (!validateText(areaField, 2, "Enter the property suburb or area.")) {
+                return;
+            }
+
+            if (formData.get("date").toString() < localDate) {
+                const dateField = quoteForm.elements.namedItem("date");
+                dateField.setCustomValidity("Choose today or a future date.");
+                dateField.reportValidity();
+                return;
+            }
+
+            const service = quoteForm.elements.namedItem("service");
+            const serviceName = service.selectedOptions[0].textContent;
+            const startingPrice = startingPrices[formData.get("service").toString()];
+            const body = [
+                "Cleaning quote enquiry",
+                `Name: ${formData.get("name")}`,
+                `Email: ${formData.get("email")}`,
+                `Phone: ${phone}`,
+                `Service: ${serviceName}`,
+                `Preferred date: ${formData.get("date")}`,
+                `Property type: ${formData.get("propertyType")}`,
+                `Suburb or area: ${formData.get("propertyArea")}`,
+                `Rooms or work areas: ${formData.get("propertySize")}`,
+                `Additional requirements: ${formData.get("comments") || "None provided"}`
+            ].join("\n");
+
+            addEmailDraftLink(
+                quoteStatus,
+                `Cleaning quote enquiry - ${serviceName}`,
+                body,
+                `Your enquiry is complete. The published starting price for ${serviceName} is R${startingPrice}. The final quote depends on the property and requested work. Date availability has not been checked.`
+            );
+        });
+    }
+
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+        const contactStatus = setFormFeedback(contactForm);
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            contactStatus.textContent = "";
+
+            const formData = new FormData(contactForm);
+            const nameField = contactForm.elements.namedItem("name");
+            if (!validateText(nameField, 2, "Enter your name using at least 2 non-space characters.")) {
+                return;
+            }
+
+            const phone = formData.get("phone").toString();
+            if (!isValidPhone(phone)) {
+                const phoneField = contactForm.elements.namedItem("phone");
+                phoneField.setCustomValidity("Enter a phone number with 7 to 15 digits.");
+                phoneField.reportValidity();
+                return;
+            }
+
+            const messageField = contactForm.elements.namedItem("message");
+            if (!validateText(messageField, 20, "Enter a message with at least 20 non-space characters.")) {
+                return;
+            }
+
+            const body = [
+                `Message type: ${formData.get("messageType")}`,
+                `Name: ${formData.get("name")}`,
+                `Email: ${formData.get("email")}`,
+                `Phone: ${phone}`,
+                "",
+                "Message:",
+                formData.get("message")
+            ].join("\n");
+
+            addEmailDraftLink(
+                contactStatus,
+                `BrightNest contact - ${formData.get("messageType")}`,
+                body,
+                "Your message has been validated."
+            );
+        });
+    }
+
+    const shareButton = document.getElementById("share-page");
+    const shareStatus = document.getElementById("share-status");
+
+    if (shareButton && shareStatus) {
+        shareButton.addEventListener("click", async () => {
+            shareStatus.textContent = "";
+
+            if (window.location.protocol !== "https:"
+                && window.location.hostname !== "localhost"
+                && window.location.hostname !== "127.0.0.1") {
+                shareStatus.textContent = "Publish BrightNest on a public HTTPS website before sharing this page.";
+                return;
+            }
+
+            const shareData = {
+                title: document.title,
+                text: "BrightNest Cleaning Services — cleaning services in Cape Town.",
+                url: window.location.href
+            };
+
+            let shareFailed = false;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                    shareStatus.textContent = "Share options opened.";
+                    return;
+                } catch (error) {
+                    if (error?.name === "AbortError") {
+                        return;
+                    }
+                    shareFailed = true;
+                }
+            }
+
+            if (navigator.clipboard) {
+                try {
+                    await navigator.clipboard.writeText(shareData.url);
+                    shareStatus.textContent = "Page link copied to the clipboard.";
+                    return;
+                } catch (error) {
+                    shareStatus.textContent = "Could not copy the page link. Copy the address from your browser.";
+                    return;
+                }
+            }
+
+            shareStatus.textContent = shareFailed
+                ? "Could not open share options. Copy the page address from your browser."
+                : "Your browser does not support sharing. Copy the page address from your browser.";
+        });
+    }
+
     const serviceList = document.getElementById("service-list");
     const serviceSearch = document.getElementById("service-search");
     const serviceSort = document.getElementById("service-sort");

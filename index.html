@@ -7,6 +7,31 @@
     <title>Cleaning Services in Cape Town | BrightNest</title>
     <meta name="description"
           content="Explore BrightNest residential and commercial cleaning in Cape Town. Compare services and request a personalised quote for your home or business.">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "BrightNest Cleaning Services",
+            "description": "Proposed residential and commercial cleaning services in Cape Town, South Africa.",
+            "areaServed": {
+                "@type": "City",
+                "name": "Cape Town",
+                "containedInPlace": {
+                    "@type": "Country",
+                    "name": "South Africa"
+                }
+            },
+            "knowsAbout": [
+                "Residential cleaning",
+                "Commercial cleaning",
+                "Deep cleaning",
+                "Move-in and move-out cleaning",
+                "Carpet cleaning",
+                "Upholstery cleaning",
+                "Window cleaning"
+            ]
+        }
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
@@ -85,7 +110,8 @@
             <article>
     <img src="https://randomuser.me/api/portraits/women/44.jpg"
          alt="Customer Sarah M."
-         class="testimonial-avatar">
+         class="testimonial-avatar"
+         width="56" height="56" loading="lazy" decoding="async">
 
     <div class="testimonial-text">
         <p>
@@ -100,7 +126,8 @@
 <article>
     <img src="https://randomuser.me/api/portraits/men/32.jpg"
          alt="Customer James K."
-         class="testimonial-avatar">
+         class="testimonial-avatar"
+         width="56" height="56" loading="lazy" decoding="async">
 
     <div class="testimonial-text">
         <p>
@@ -165,16 +192,11 @@
 
         <h2>Contact BrightNest</h2>
 
-        <p>Phone: 012 345 6789</p>
         <p>Email: info@brightnest.co.za</p>
 
-        <p>
-            Follow us on social media:
-        </p>
-
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
+        <p>Share BrightNest:</p>
+        <button id="share-page" class="btn share-button" type="button">Share this page</button>
+        <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
 
     
 

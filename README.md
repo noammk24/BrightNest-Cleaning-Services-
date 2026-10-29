@@ -26,7 +26,7 @@ The website is aimed at residential customers, professionals, students and small
 
 The website will use a simple and clear structure to help users find information about available services and request a quotation.
 
-The website includes responsive styling and interactive features such as an FAQ accordion, a project gallery lightbox, scroll-reveal effects and an OpenStreetMap-powered Cape Town service-area map.
+The website includes responsive styling and interactive features such as an FAQ accordion, a project gallery lightbox, scroll-reveal effects, page sharing and an OpenStreetMap-powered Cape Town service-area map.
 
 ---
 
@@ -109,27 +109,33 @@ The service cards can be searched and sorted by name or starting price. The serv
 - Descriptive `.html` page paths are retained for simple static hosting; the referenced image filenames use lowercase, hyphenated names.
 - Service listings can be filtered by search text and sorted by name or price.
 - Mobile layouts retain the site navigation and adapt the service controls to narrow screens.
+- `robots.txt` allows crawlers to access the website and its resources. Add the sitemap directive after the public domain is confirmed.
+- Below-the-fold gallery, testimonial and service images use lazy loading; image dimensions are declared where useful to reduce layout shifts.
+- JavaScript is loaded with `defer`, external map library files use Subresource Integrity, and external new-tab links use `noopener noreferrer`.
 
 Keyword phrases were selected from Google autocomplete suggestions for Cape Town cleaning searches and aligned with the services offered. Suggestions included “cleaning services Cape Town,” “cleaning services Cape Town prices,” “house cleaning Cape Town” and “deep cleaning services Cape Town.” These are directional query suggestions, not search-volume estimates.
 
 ### Pricing and Quote Page
 
-- Proposed service prices
-- Quote request form
-- Customer details
-- Preferred cleaning date
-- Property information
-- Additional comments
-- Frequently Asked Questions
+- Proposed service prices and frequently asked questions
+- Quote enquiry form for customer contact details, service, preferred date, property type and area, room/work-area count, and additional requirements
+- Client-side required-field, email, phone, date and numeric-range validation
+- On valid input, displays the selected service's published starting price and explains that availability is not checked and the final amount depends on the work requested
+- Creates a prefilled email draft to the existing `info@brightnest.co.za` address for the customer to review and send
 
 ### Contact Page
 
 - Telephone number
 - Email address
-- WhatsApp contact option
 - Contact form
 - Business operating hours
 - Cape Town service-area map with an OpenStreetMap link
+- Separate contact form with name, email, phone, message type and a 20–2000 character message
+- Client-side validation and a prefilled email draft to `info@brightnest.co.za`
+
+### Form Delivery and Validation
+
+Both forms use native HTML constraints and JavaScript feedback. Their `mailto:` actions and the generated draft links only open a draft in a mail application configured on the visitor's device; BrightNest does not receive a submission until the visitor sends it, and some devices may not have a mail application configured. The site has no backend, AJAX endpoint or configured email service, so it does not claim that a message was sent. To enable reliable delivery and AJAX feedback, deploy the site and connect a trusted form-processing service or a server-side endpoint with spam protection; configure and verify the recipient address there. Do not put email-service API keys or secrets in client-side JavaScript.
 
 ---
 
@@ -181,6 +187,23 @@ The following technologies and tools are used for the project:
 The website uses HTML5, CSS3 and vanilla JavaScript. Leaflet and OpenStreetMap provide the interactive map; the rest of the interactions do not require a framework. The map pin marks central Cape Town as a general service-area reference because the fictional business has no public street address.
 
 The Our Work gallery includes locally stored photographs from Unsplash, used under the [Unsplash License](https://unsplash.com/license). Photo credits: [Vitaly Gariev](https://unsplash.com/@silverkblack), [Giorgio Trovato](https://unsplash.com/@giorgiotrovato) and [Towfiqu barbhuiya](https://unsplash.com/@towfiqu999999).
+
+### Section 3.2: Off-Page and Local SEO
+
+- The homepage includes Schema.org `Organization` JSON-LD for the proposed business name, stated Cape Town service area and services. It intentionally omits an address, map coordinates, phone number, public website URL and social profiles because these have not been verified as real business details. This describes the organization and does not qualify it for LocalBusiness address-based rich results.
+- The Contact page retains the Leaflet/OpenStreetMap map and labels its central Cape Town marker as a general service-area reference, not a business address. Cape Town is the only service area named on the site; confirm individual neighborhood coverage before advertising it.
+- The footer uses the browser's native share sheet where supported, with a clipboard fallback. Sharing requires a public HTTPS deployment (or localhost during development). No social profile links are included because no account URLs have been provided.
+- No backlinks or directory listings have been created. Once a real business is operating and its details and eligibility are confirmed, legitimate opportunities include a [Google Business Profile](https://support.google.com/business/answer/9157481?hl=en) configured as a service-area business when applicable, a relevant [Snupit](https://www.snupit.co.za/) service-provider listing and a [Brabys](https://www.brabys.com/) business listing. Also consider genuine local chamber, neighborhood, supplier or community-organization pages when BrightNest has an actual relationship or membership. Follow each platform's current eligibility and listing rules.
+- Use accurate, consistent business name, verified contact details and service area across approved listings. The Contact page currently shows two phone numbers, while older footer content used a different number; the conflicting footer number has been removed. Confirm which contact numbers are current before adding them to external profiles or structured data.
+- Earn links through real customer, supplier, community or sponsorship relationships and useful local information. Do not buy links, create fake listings, use link schemes or claim third-party profiles that BrightNest does not own.
+- Directory profiles, verification, community relationships, backlink outreach and social account setup all require external action by an authorized business owner. The page-sharing control also needs public HTTPS hosting to share a public URL. BrightNest is currently a fictional academic project, so do not register it as a real business or claim listings on its behalf.
+
+### Crawlability, Sitemap and Hosting Security
+
+- The root `robots.txt` allows crawling and does not block HTML pages, stylesheets, scripts or images.
+- A standards-compliant sitemap needs absolute public URLs. The canonical production domain and any deployment subpath have not been provided, so `sitemap.xml` must be generated once the final public base URL is known; do not submit local file paths or localhost URLs to search engines.
+- Configure HTTPS and redirect HTTP to HTTPS at the hosting provider. Where supported, set security headers such as Content-Security-Policy, Strict-Transport-Security (only over HTTPS), X-Content-Type-Options, Referrer-Policy and a suitable Permissions-Policy in the host or CDN configuration. Static HTML files cannot reliably enforce response headers themselves.
+- The interactive map depends on Leaflet from unpkg and map tiles from OpenStreetMap; keep the pinned integrity attributes and follow the tile provider's usage policy.
 
 ---
 
