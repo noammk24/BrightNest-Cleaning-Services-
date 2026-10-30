@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+sitemap: https://brightnest-cleaning-services.netlify.app/sitemap.xml

@@ -73,10 +73,11 @@
             <section>
 
                 <h2>Contact Form</h2>
-                <p>Review the validated details in your email app and press Send. The form does not send automatically.</p>
+                <p>Send your message directly to the BrightNest team using the form below.</p>
 
                 <form id="contact-form" class="site-form"
-                      action="mailto:info@brightnest.co.za" method="post" enctype="text/plain">
+                      action="https://formspree.io/f/mbggaral" method="post">
+                    <input type="hidden" name="_subject" value="BrightNest contact form submission">
                     <div class="form-field">
                         <label for="contact-name">Full Name:</label>
                         <input type="text" id="contact-name" name="name" autocomplete="name"
@@ -120,10 +121,10 @@
                         <small class="field-error" id="contact-message-error"></small>
                     </div>
 
-                    <button type="submit" class="btn">Review Message</button>
+                    <button type="submit" class="btn">Send Message</button>
                     <p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
-                <noscript><p>JavaScript is disabled. Browser validation remains available; submitting will try to open an email draft in your configured mail app.</p></noscript>
+                <noscript><p>JavaScript is disabled. Browser validation remains available, but inline submission confirmation requires JavaScript.</p></noscript>
 
             </section>
 

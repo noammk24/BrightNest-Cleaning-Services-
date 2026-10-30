@@ -120,8 +120,7 @@ Keyword phrases were selected from Google autocomplete suggestions for Cape Town
 - Proposed service prices and frequently asked questions
 - Quote enquiry form for customer contact details, service, preferred date, property type and area, room/work-area count, and additional requirements
 - Client-side required-field, email, phone, date and numeric-range validation
-- On valid input, displays the selected service's published starting price and explains that availability is not checked and the final amount depends on the work requested
-- Creates a prefilled email draft to the existing `info@brightnest.co.za` address for the customer to review and send
+- Submits the request to Formspree and, after confirmed receipt, displays the selected service's published starting price and explains that availability is not checked and the final amount depends on the work requested
 
 ### Contact Page
 
@@ -131,11 +130,11 @@ Keyword phrases were selected from Google autocomplete suggestions for Cape Town
 - Business operating hours
 - Cape Town service-area map with an OpenStreetMap link
 - Separate contact form with name, email, phone, message type and a 20–2000 character message
-- Client-side validation and a prefilled email draft to `info@brightnest.co.za`
+- Client-side validation and AJAX submission to Formspree
 
 ### Form Delivery and Validation
 
-Both forms use native HTML constraints and JavaScript feedback. Their `mailto:` actions and the generated draft links only open a draft in a mail application configured on the visitor's device; BrightNest does not receive a submission until the visitor sends it, and some devices may not have a mail application configured. The site has no backend, AJAX endpoint or configured email service, so it does not claim that a message was sent. To enable reliable delivery and AJAX feedback, deploy the site and connect a trusted form-processing service or a server-side endpoint with spam protection; configure and verify the recipient address there. Do not put email-service API keys or secrets in client-side JavaScript.
+Both forms use native HTML constraints and JavaScript feedback, then submit independently with `fetch()` to Formspree. The contact form uses `https://formspree.io/f/mbggaral`; the quote form uses `https://formspree.io/f/xvkkbpqe`. The forms display success only when Formspree returns a successful JSON confirmation, and keep the entered details if submission fails. In the Formspree dashboard, configure and verify `noamekabeke@gmail.com` as the notification recipient for both endpoints. Recipient routing cannot be configured securely from the public website. Deploy the site over HTTPS and test each endpoint after confirming the Formspree account's activation and any required email verification. Do not put email-service API keys or secrets in client-side JavaScript.
 
 ---
 

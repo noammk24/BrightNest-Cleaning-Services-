@@ -38,13 +38,15 @@
 
             <p>
                 Complete the form below to request a personalised house or office cleaning quote in Cape Town.
-                After validation, review the published starting price and open a prefilled email draft to send your enquiry.
-                The draft is not sent automatically, and the requested date is not checked for availability.
+                After you send the form, we will confirm when your request has been received. Published starting prices
+                are estimates; the final quote depends on the property and requested work, and the requested date is not
+                checked for availability.
             </p>
 
             <!-- Quote request form -->
             <form id="quote-form" class="site-form"
-                  action="mailto:info@brightnest.co.za" method="post" enctype="text/plain">
+                  action="https://formspree.io/f/xvkkbpqe" method="post">
+                <input type="hidden" name="_subject" value="BrightNest cleaning quote request">
                 <div class="form-field">
                     <label for="quote-name">Full Name:</label>
                     <input type="text" id="quote-name" name="name" autocomplete="name"
@@ -124,11 +126,11 @@
                     <small class="field-error" id="quote-comments-error"></small>
                 </div>
 
-                <button type="submit" class="btn">Review Quote Request</button>
+                <button type="submit" class="btn">Send Quote Request</button>
                 <p id="quote-form-status" class="form-status" role="status" aria-live="polite"></p>
             </form>
 
-            <noscript><p>JavaScript is disabled. Browser validation remains available; submitting will try to open an email draft in your configured mail app.</p></noscript>
+            <noscript><p>JavaScript is disabled. Browser validation remains available, but inline submission confirmation requires JavaScript.</p></noscript>
 
         </section>
 

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const emailRecipient = "info@brightnest.co.za";
     const today = new Date();
     const localDate = [
         today.getFullYear(),
@@ -59,15 +58,52 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     };
 
-    const addEmailDraftLink = (status, subject, body, message) => {
-        status.textContent = `${message} `;
-        const link = document.createElement("a");
-        link.href = `mailto:${emailRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        link.textContent = "Open prefilled email draft";
-        status.append(link);
-        const note = document.createElement("span");
-        note.textContent = " Review it and press Send in your email app; it has not been sent.";
-        status.append(note);
+    const clearFieldFeedback = (form) => {
+        form.querySelectorAll("input, select, textarea").forEach((field) => {
+            field.setCustomValidity("");
+            setFieldError(field, "");
+        });
+    };
+
+    const submitToFormspree = async (form, status, successMessage) => {
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        status.textContent = "Sending your request...";
+
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: new FormData(form)
+            });
+            let result;
+
+            try {
+                result = await response.json();
+            } catch {
+                result = null;
+            }
+
+            if (!response.ok || !result || result.ok !== true) {
+                const errors = result && Array.isArray(result.errors)
+                    ? result.errors.map((error) => error.message).filter(Boolean)
+                    : [];
+                status.textContent = errors.length
+                    ? `We couldn't send your request: ${errors.join(" ")}`
+                    : "We couldn't confirm that your request was received. Please try again.";
+                return false;
+            }
+
+            form.reset();
+            clearFieldFeedback(form);
+            status.textContent = successMessage;
+            return true;
+        } catch {
+            status.textContent = "We couldn't send your request. Check your internet connection and try again.";
+            return false;
+        } finally {
+            submitButton.disabled = false;
+        }
     };
 
     const quoteForm = document.getElementById("quote-form");
@@ -86,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window: 300
         };
 
-        quoteForm.addEventListener("submit", (event) => {
+        quoteForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             quoteStatus.textContent = "";
 
@@ -119,24 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const service = quoteForm.elements.namedItem("service");
             const serviceName = service.selectedOptions[0].textContent;
             const startingPrice = startingPrices[formData.get("service").toString()];
-            const body = [
-                "Cleaning quote enquiry",
-                `Name: ${formData.get("name")}`,
-                `Email: ${formData.get("email")}`,
-                `Phone: ${phone}`,
-                `Service: ${serviceName}`,
-                `Preferred date: ${formData.get("date")}`,
-                `Property type: ${formData.get("propertyType")}`,
-                `Suburb or area: ${formData.get("propertyArea")}`,
-                `Rooms or work areas: ${formData.get("propertySize")}`,
-                `Additional requirements: ${formData.get("comments") || "None provided"}`
-            ].join("\n");
-
-            addEmailDraftLink(
+            await submitToFormspree(
+                quoteForm,
                 quoteStatus,
-                `Cleaning quote enquiry - ${serviceName}`,
-                body,
-                `Your enquiry is complete. The published starting price for ${serviceName} is R${startingPrice}. The final quote depends on the property and requested work. Date availability has not been checked.`
+                "Your quote request has been received. "
+                    + `The published starting price for ${serviceName} is R${startingPrice}. `
+                    + "The final quote depends on the property and requested work; date availability has not been checked."
             );
         });
     }
@@ -145,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactForm) {
         const contactStatus = setFormFeedback(contactForm);
 
-        contactForm.addEventListener("submit", (event) => {
+        contactForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             contactStatus.textContent = "";
 
@@ -168,21 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const body = [
-                `Message type: ${formData.get("messageType")}`,
-                `Name: ${formData.get("name")}`,
-                `Email: ${formData.get("email")}`,
-                `Phone: ${phone}`,
-                "",
-                "Message:",
-                formData.get("message")
-            ].join("\n");
-
-            addEmailDraftLink(
+            await submitToFormspree(
+                contactForm,
                 contactStatus,
-                `BrightNest contact - ${formData.get("messageType")}`,
-                body,
-                "Your message has been validated."
+                "Your message has been received. Thank you for contacting BrightNest."
             );
         });
     }
