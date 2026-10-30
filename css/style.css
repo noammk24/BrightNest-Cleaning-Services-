@@ -454,10 +454,18 @@ footer a:hover {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        column-gap: 10px;
+    }
+
+    .site-name {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: clamp(0.95rem, 5vw, 1.25rem);
     }
 
     .menu-toggle {
         display: inline-flex;
+        flex: 0 0 44px;
     }
  
     nav {
@@ -507,10 +515,6 @@ footer a:hover {
 
 /* Small mobile screens */
 @media (max-width: 480px) {
-
-    .site-name {
-        font-size: 1.5rem;
-    }
 
     nav {
         gap: 8px;
