@@ -108,7 +108,7 @@ The service cards can be searched and sorted by name or starting price. The serv
 - Existing navigation and service-to-quote links connect related pages.
 - Descriptive `.html` page paths are retained for simple static hosting; the referenced image filenames use lowercase, hyphenated names.
 - Service listings can be filtered by search text and sorted by name or price.
-- Mobile layouts retain the site navigation and adapt the service controls to narrow screens.
+- On screens 600px wide or narrower, the page links collapse into an accessible hamburger menu; larger screens keep the full navigation visible.
 - `robots.txt` allows crawlers to access the website and its resources. Add the sitemap directive after the public domain is confirmed.
 - Below-the-fold gallery, testimonial and service images use lazy loading; image dimensions are declared where useful to reduce layout shifts.
 - JavaScript is loaded with `defer`, external map library files use Subresource Integrity, and external new-tab links use `noopener noreferrer`.

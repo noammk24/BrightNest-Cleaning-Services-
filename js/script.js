@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNavigation = document.getElementById("main-navigation");
+
+    if (menuToggle && mainNavigation) {
+        const closeMenu = () => {
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        };
+
+        menuToggle.addEventListener("click", () => {
+            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+            menuToggle.setAttribute(
+                "aria-label",
+                isExpanded ? "Open navigation menu" : "Close navigation menu"
+            );
+        });
+
+        mainNavigation.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+                closeMenu();
+                menuToggle.focus();
+            }
+        });
+
+        window.matchMedia("(min-width: 601px)").addEventListener("change", closeMenu);
+    }
+
     const today = new Date();
     const localDate = [
         today.getFullYear(),
