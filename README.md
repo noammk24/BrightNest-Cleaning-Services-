@@ -109,7 +109,7 @@ The service cards can be searched and sorted by name or starting price. The serv
 - Descriptive `.html` page paths are retained for simple static hosting; the referenced image filenames use lowercase, hyphenated names.
 - Service listings can be filtered by search text and sorted by name or price.
 - On screens 600px wide or narrower, the page links collapse into an accessible hamburger menu; larger screens keep the full navigation visible.
-- `robots.txt` allows crawlers to access the website and its resources. Add the sitemap directive after the public domain is confirmed.
+- `robots.txt` allows crawlers to access the website and points to the root `sitemap.xml`.
 - Below-the-fold gallery, testimonial and service images use lazy loading; image dimensions are declared where useful to reduce layout shifts.
 - JavaScript is loaded with `defer`, external map library files use Subresource Integrity, and external new-tab links use `noopener noreferrer`.
 
@@ -200,7 +200,7 @@ The Our Work gallery includes locally stored photographs from Unsplash, used und
 ### Crawlability, Sitemap and Hosting Security
 
 - The root `robots.txt` allows crawling and does not block HTML pages, stylesheets, scripts or images.
-- A standards-compliant sitemap needs absolute public URLs. The canonical production domain and any deployment subpath have not been provided, so `sitemap.xml` must be generated once the final public base URL is known; do not submit local file paths or localhost URLs to search engines.
+- The root `sitemap.xml` lists all five deployed pages with absolute HTTPS URLs: the home page and the About, Services, Quote and Contact pages under `/pages/`. Its location is declared in `robots.txt`; update both files if the production domain or page paths change.
 - Configure HTTPS and redirect HTTP to HTTPS at the hosting provider. Where supported, set security headers such as Content-Security-Policy, Strict-Transport-Security (only over HTTPS), X-Content-Type-Options, Referrer-Policy and a suitable Permissions-Policy in the host or CDN configuration. Static HTML files cannot reliably enforce response headers themselves.
 - The interactive map depends on Leaflet from unpkg and map tiles from OpenStreetMap; keep the pinned integrity attributes and follow the tile provider's usage policy.
 
