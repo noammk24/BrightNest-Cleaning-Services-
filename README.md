@@ -290,7 +290,6 @@ The table below outlines the proposed budget for developing and maintaining the 
 |---|---|
 | 2026-10-30 | Published the site on Netlify at [brightnest-cleaning-services.netlify.app](https://brightnest-cleaning-services.netlify.app/). The owner reports that the GitHub repository is connected for deployment updates; that Netlify setting is managed outside this repository. |
 
-Off-page SEO work such as backlinks, directory listings, and business listings has not been completed.
 
 ---
 
@@ -414,11 +413,9 @@ BrightNest-Cleaning-Services/
 
 ## Website Screenshots
 
-No website screenshots are currently included in the repository. Capture the pages in a browser and save the screenshot files in a new `screenshots/` folder in the project root. The relative image paths below will display the screenshots on GitHub after the files are added.
-
 ### Homepage
 
-![Homepage screenshot placeholder](screenshots/homepage.png)
+![Homepage screenshot](screenshots/homepage.png)
 
 ### About Page
 
@@ -444,23 +441,23 @@ No website screenshots are currently included in the repository. Capture the pag
 
 ## References
 
-Google Search Central (2025) *Creating helpful, reliable, people-first content*. Available at: https://developers.google.com/search/docs/fundamentals/creating-helpful-content (Accessed: 14 August 2026).
+Google Search Central (2025) *Creating helpful, reliable, people-first content*. Available at:[ https://developers.google.com/search/docs/fundamentals/creating-helpful-content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) (Accessed: 14 August 2026).
 
-International Organization for Standardization (2019) *ISO 9241-210:2019 Ergonomics of human-system interaction – Part 210: Human-centred design for interactive systems*. Available at: https://www.iso.org/standard/77520.html (Accessed: 14 August 2026).
+International Organization for Standardization (2019) *ISO 9241-210:2019 Ergonomics of human-system interaction – Part 210: Human-centred design for interactive systems*. Available at: [https://www.iso.org/standard/77520.html](https://www.iso.org/standard/77520.html) (Accessed: 14 August 2026).
 
-Pexels (n.d.) *Pexels licence*. Available at: https://www.pexels.com/legal-pages/license/ (Accessed: 14 August 2026).
+Pexels (n.d.) *Pexels licence*. Available at: [https://www.pexels.com/legal-pages/license/](https://www.pexels.com/legal-pages/license/) (Accessed: 14 August 2026).
 
-World Wide Web Consortium (2024) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 14 August 2026).
+World Wide Web Consortium (2024) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: [https://www.w3.org/TR/WCAG22/](https://www.w3.org/TR/WCAG22/) (Accessed: 14 August 2026).
 
 Google (2026) *Google Fonts*. Available at: https://fonts.google.com (Accessed: 18 September 2026).
 
-Mozilla Developer Network (2026) *CSS: Cascading Style Sheets*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS (Accessed: 18 September 2026).
+Mozilla Developer Network (2026) *CSS: Cascading Style Sheets*. Available at: [https://developer.mozilla.org/en-US/docs/Web/CSS ](https://developer.mozilla.org/en-US/docs/Web/CSS)(Accessed: 18 September 2026).
 
-Pexels (2026) *Pexels: Free stock photos and videos*. Available at: https://www.pexels.com (Accessed: 18 September 2026).
+Pexels (2026) *Pexels: Free stock photos and videos*. Available at: [https://www.pexels.com ](https://www.pexels.com/)(Accessed: 18 September 2026).
 
-Random User Generator (2026) *Random User Generator*. Available at: https://randomuser.me (Accessed: 18 September 2026).
+Random User Generator (2026) *Random User Generator*. Available at: [https://randomuser.me ](https://randomuser.me/)(Accessed: 18 September 2026).
 
-W3Schools (2026) *CSS Tutorial*. Available at: https://www.w3schools.com/css (Accessed: 18 September 2026).
+W3Schools (2026) *CSS Tutorial*. Available at: [https://www.w3schools.com/css](https://www.w3schools.com/css/) (Accessed: 18 September 2026).
 
 
 Mozilla Developer Network (MDN) (n.d.) HTML: A good basis for accessibility. Available at:[ MDN – HTML Accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML?trk=article-ssr-frontend-pulse_little-text-block&utm) (Accessed: 30 October 2026).
