@@ -237,7 +237,60 @@ The table below outlines the proposed budget for developing and maintaining the 
 | Part 2 | Responsive website development | Completed |
 | Part 3 | Dynamic service search and sorting | Completed |
 | Part 3 | On-page SEO and descriptive image assets | Completed |
-| Final | Testing and documentation | Planned |
+| Final  | Website screenshots for assignment documentation | completed |
+| Final  | Testing and documentation | completed |
+
+---
+
+## Project Changelog
+
+### Part 1 – Initial Website Development
+
+| Date | Changes |
+|---|---|
+| 2026-08-09 | Created the initial repository and project folders. |
+| 2026-08-12 | Added the five HTML pages, initial website content, and navigation between pages. |
+| 2026-08-14 | Added the first cleaning-service images and expanded the project README. |
+
+### Part 2 – Lecturer Feedback Corrections
+
+| Date | Changes |
+|---|---|
+| 2026-09-18 | Began the styling stage by adding the shared CSS stylesheet and linking it to the website pages. This was general styling work, separate from the feedback corrections below. |
+| 2026-10-05 | Connected the `.hero`, `.btn`, `.service-grid`, `.service-card`, and `.site-form` classes to the relevant HTML elements. |
+| 2026-10-28 | Added the approximately 480px responsive breakpoint and smaller-screen typography adjustments. |
+| 2026-10-29 | Increased the main H1 size above H2 and corrected the carpet-cleaning image filename and reference. Updated the “Our Work” gallery to use its image paths. |
+| 2026-10-30 | Closed the testimonials section before the separate “Our Work” section and adjusted the responsive H1 size so it remains larger than H2. These latest corrections are in the working files and have not yet been committed. |
+
+### Further Development – Interactive Features
+
+| Date | Changes |
+|---|---|
+| 2026-10-28 | Added the FAQ accordion, homepage image lightbox, scroll-reveal effects, and Leaflet/OpenStreetMap service-area map. |
+| 2026-10-29 | Added dynamic service listings with search and sorting. |
+| 2026-10-30 | Added an accessible hamburger navigation menu for smaller screens and adjusted the mobile header spacing. |
+
+### Forms and Functionality
+
+| Date | Changes |
+|---|---|
+| 2026-10-29 | Added client-side validation for the Contact and Quote forms. |
+| 2026-10-30 | Connected the Contact and Quote forms to separate Formspree endpoints using AJAX. Added processing states, disabled submit buttons, success/error feedback, and reset-on-confirmed-success behavior. Live email delivery and the Formspree recipient configuration still need to be verified in the Formspree account. |
+
+### SEO, Performance and Technical Improvements
+
+| Date | Changes |
+|---|---|
+| 2026-10-29 | Improved page titles, meta descriptions, heading hierarchy, image descriptions, and service-image filenames. Added Organization structured data and `robots.txt`. Added lazy loading for suitable images and integrity attributes for external map-library resources. |
+| 2026-10-30 | Added the root `sitemap.xml` with the five deployed page URLs. |
+
+### Deployment
+
+| Date | Changes |
+|---|---|
+| 2026-10-30 | Published the site on Netlify at [brightnest-cleaning-services.netlify.app](https://brightnest-cleaning-services.netlify.app/). The owner reports that the GitHub repository is connected for deployment updates; that Netlify setting is managed outside this repository. |
+
+Off-page SEO work such as backlinks, directory listings, and business listings has not been completed.
 
 ---
 
@@ -269,13 +322,14 @@ The five main HTML pages are:
 
 ### Part 1 Feedback and Revisions
 
-The following corrections were made in response to Part 1 marking feedback:
+The following early HTML and content revisions are recorded in the project history:
 
 - Fixed HTML structural errors on `about.html`, `services.html`, `quote.html` and `contact.html`. Every page now has a proper `<footer>` and ends with `</body></html>`.
 - Moved the misplaced `</body>` tag in `contact.html` to the end of the file, after the page's main content.
 - Corrected the incorrect "FreshFold" reference in the FAQ section to read "BrightNest".
-- Fixed broken image references, including the two missing gallery images on the homepage and the case-mismatch on the carpet cleaning image filename.
 - Added HTML comments throughout the code to describe each major section.
+
+The carpet-cleaning filename and “Our Work” image-path corrections are listed under the dated Part 2 feedback changelog above.
 
 ---
 
@@ -302,10 +356,13 @@ Part 3 adds the FAQ accordion, Leaflet service-area map, gallery lightbox, scrol
 
 ## Folder Structure
 
-The project is organised into separate folders to make the website files easier to manage.
+The tree below reflects the current website files.
 
 ```text
 BrightNest-Cleaning-Services/
+│
+├── .vscode/
+│   └── launch.json
 │
 ├── css/
 │   └── style.css
@@ -315,28 +372,73 @@ BrightNest-Cleaning-Services/
 │
 ├── pages/
 │   ├── about.html
-│   ├── services.html
+│   ├── contact.html
 │   ├── quote.html
-│   └── contact.html
+│   └── services.html
 │
+├──screenshots/
+│        ├── about.png
+│        ├── contact.png
+│        ├── homepage.png
+│        ├── mobile-responsive.jpeg
+│        ├── quote.png
+│        └── services.png
+│ 
 ├── images/
+│   ├── gallery/
+│   │   ├── desk-cleaning.jpg
+│   │   ├── living-room-mopping.jpg
+│   │   └── upholstery-vacuuming.jpg
 │   └── services/
+│       ├── Commercial Cleaning.jpg
+│       ├── Residential Cleaning.jpg
 │       ├── brightnest-cleaning-supplies.png
 │       ├── cape-town-cleaning-professional.png
 │       ├── carpet-cleaning-cape-town.jpg
-│       ├── Commercial Cleaning.jpg
 │       ├── deep-cleaning-cape-town.jpg
+│       ├── home page.jpg
+│       ├── homep.png
 │       ├── move-in-move-out-cleaning-cape-town.jpg
 │       ├── office-cleaning-cape-town.png
-│       ├── Residential Cleaning.jpg
 │       ├── residential-cleaning-cape-town.png
 │       ├── upholstery-cleaning-cape-town.png
 │       └── window-cleaning-cape-town.jpg
 │
 ├── index.html
-│
+├── robots.txt
+├── sitemap.xml
 └── README.md
 ```
+
+---
+
+## Website Screenshots
+
+No website screenshots are currently included in the repository. Capture the pages in a browser and save the screenshot files in a new `screenshots/` folder in the project root. The relative image paths below will display the screenshots on GitHub after the files are added.
+
+### Homepage
+
+![Homepage screenshot placeholder](screenshots/homepage.png)
+
+### About Page
+
+![About page screenshot](screenshots/about.png)
+
+### Services Page
+
+![Services page screenshot](screenshots/services.png)
+
+### Quote Page
+
+![Quote page screenshot](screenshots/quote.png)
+
+### Contact Page
+
+![Contact page screenshot](screenshots/contact.png)
+
+### Mobile Responsive Layout
+
+![Mobile responsive layout screenshot](screenshots/mobile-responsive.jpeg)
 
 ---
 
@@ -359,3 +461,18 @@ Pexels (2026) *Pexels: Free stock photos and videos*. Available at: https://www.
 Random User Generator (2026) *Random User Generator*. Available at: https://randomuser.me (Accessed: 18 September 2026).
 
 W3Schools (2026) *CSS Tutorial*. Available at: https://www.w3schools.com/css (Accessed: 18 September 2026).
+
+
+Mozilla Developer Network (MDN) (n.d.) HTML: A good basis for accessibility. Available at:[ MDN – HTML Accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML?trk=article-ssr-frontend-pulse_little-text-block&utm) (Accessed: 30 October 2026).
+
+Mozilla Developer Network (MDN) (n.d.) Using HTML form validation and the Constraint Validation API. Available at: [MDN – HTML Form Validation ](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation)(Accessed: 30 October 2026).
+
+Formspree (n.d.) Formspree Documentation. Available at: [Formspree Documentation](https://help.formspree.io/) (Accessed: 30 October 2026).
+
+Google Search Central (n.d.) SEO Guide for Web Developers. Available at: [Google Search Central – SEO Guide](https://developers.google.com/search/docs/fundamentals/get-started-developers) (Accessed: 30 October 2026).
+
+Google Search Central (n.d.) Maintaining your website. Available at: [Google Search Central – Maintaining Your Website](https://developers.google.com/search/docs/fundamentals/get-started) (Accessed: 30 October 2026).
+
+Leaflet (n.d.) Leaflet – An Open-Source JavaScript Library for Mobile-Friendly Interactive Maps. Available at: [Leaflet Official Website ](https://leafletjs.com/)(Accessed: 30 October 2026)
+
+Netlify (n.d.) Netlify Documentation. Available at: [Netlify Documentation](https://docs.netlify.com/) (Accessed: 30 October 2026).

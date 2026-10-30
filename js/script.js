@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (window.location.protocol !== "https:"
                 && window.location.hostname !== "localhost"
                 && window.location.hostname !== "127.0.0.1") {
-                shareStatus.textContent = "Publish BrightNest on a public HTTPS website before sharing this page.";
+                shareStatus.textContent = "failed to share page.";
                 return;
             }
 
