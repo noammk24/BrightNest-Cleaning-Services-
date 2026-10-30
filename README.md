@@ -438,7 +438,7 @@ No website screenshots are currently included in the repository. Capture the pag
 
 ### Mobile Responsive Layout
 
-![Mobile responsive layout screenshot](screenshots/mobile-responsive.jpeg)
+![Mobile responsive layout screenshot](screenshots/mobile-responsive.png)
 
 ---
 
