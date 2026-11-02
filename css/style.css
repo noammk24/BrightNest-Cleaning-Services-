@@ -258,13 +258,44 @@ main > section {
 }
 
 .share-button {
-    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    margin: 2px 0 0;
+    padding: 8px 15px;
+    border: 1px solid #cfe0da;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #163f3a;
     cursor: pointer;
     font: inherit;
+    font-weight: bold;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.share-button::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cpath d='m8.6 13.5 6.8 4m0-11-6.8 4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.share-button:hover {
+    border-color: #cfe0da;
+    background-color: #e4eee8;
+    color: #163f3a;
+    transform: translateY(-1px);
 }
 
 .share-status {
-    min-height: 1.6em;
+    min-height: 1.3em;
+    margin: 5px 0 0;
+    color: #cfe0da;
+    font-size: 0.9rem;
 }
 
 
