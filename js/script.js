@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener("invalid", (event) => {
             const field = event.target;
             setFieldError(field, field.validationMessage);
-            status.textContent = `Please correct the highlighted field: ${field.validationMessage}`;
+            status.textContent = field.validationMessage;
         }, true);
 
         form.querySelectorAll("input, select, textarea").forEach((field) => {
@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             let result;
 
+            // Only report success when Formspree confirms receipt.
             try {
                 result = await response.json();
             } catch {
@@ -404,6 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let lastTrigger = null;
 
         const showImage = (index) => {
+            // Wrap around so Previous and Next cycle through the gallery.
             currentIndex = (index + galleryItems.length) % galleryItems.length;
             const item = galleryItems[currentIndex];
             image.src = item.dataset.full || item.querySelector("img").src;
@@ -479,6 +481,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let observer = null;
 
         const startReveals = () => {
+            // Pause reveals while the tab is hidden.
             if (document.visibilityState !== "visible" || observer) {
                 return;
             }
